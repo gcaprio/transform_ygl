@@ -102,6 +102,7 @@ def output_datalinx_xml_from_payload(payload, filename):
     for payloadListing in payload['listings']:
         property_node = ET.SubElement(properties, 'Property', attrib={'LocalPropertyID':payloadListing['listing_id']})
         description = ET.SubElement(property_node, 'Description').text = payloadListing['description']
+        email = ET.SubElement(property_node, 'EmailAddress').text = payloadListing['email']
 
         address = ET.SubElement(property_node, 'Address').text = payloadListing['street_address']
         city = ET.SubElement(property_node, 'City').text = payloadListing['city']
@@ -195,3 +196,4 @@ output_datalinx_xml_from_payload(payload, datalinx_filename)
 # hotpads: https://filenet.hotpads.com/+guides/RentalListingsFeedGuide.pdf
 # zillow: https://www.zillow.com/static/pdf/feeds/ZillowBrokerFeedsTechnicalSpecV1.0.20.pdf
 # showmojo: https://showmojo.com/ShowMojo_Listing_Import_API.pdf
+# RentLinx https://www.rentlinx.com/docs/datalinx
