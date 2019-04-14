@@ -178,7 +178,8 @@ def output_zillow_xml_from_payload(payload, filename):
     #myfile.write(mydata)
 
 
-ygl_url = 'http://www.yougotlistings.com/feed?id=sIiYXfrb6NDmBMok0ZA9PQldhV8W5uSp7jE4xCU1&code=zNnY'
+#ygl_url = 'http://www.yougotlistings.com/feed?id=sIiYXfrb6NDmBMok0ZA9PQldhV8W5uSp7jE4xCU1&code=zNnY'
+ygl_url = 'https://www.yougotlistings.com/feed?id=sIiYXfrb6NDmBMok0ZA9PQldhV8W5uSp7jE4xCU1&code=zNnY'
 
 doc = download_latest_ygl_file(ygl_url)
 
