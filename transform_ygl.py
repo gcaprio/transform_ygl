@@ -30,7 +30,11 @@ def convert_listings_from_xml_to_json(doc):
         street_address = listing.getElementsByTagName("street")[0].childNodes[0].data
         city = listing.getElementsByTagName("city")[0].childNodes[0].data
         state = listing.getElementsByTagName("state")[0].childNodes[0].data
-        zip_code = listing.getElementsByTagName("zip")[0].childNodes[0].data
+        zip_code_element = listing.getElementsByTagName("zip")
+        if zip_code_element.length is 0:
+            zip_code = ''
+        else:
+            zip_code = listing.getElementsByTagName("zip")[0].childNodes[0].data
 
         email = listing.getElementsByTagName("contactEmail")[0].childNodes[0].data
         phone = listing.getElementsByTagName("contactPhone")[0].childNodes[0].data
