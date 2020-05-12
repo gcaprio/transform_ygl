@@ -41,7 +41,10 @@ def convert_listings_from_xml_to_json(doc):
 
         bedrooms = listing.getElementsByTagName("numBedrooms")[0].childNodes[0].data
         bathrooms = listing.getElementsByTagName("numFullBaths")[0].childNodes[0].data
-        half_bathrooms = listing.getElementsByTagName("numberHalfBaths")[0].childNodes[0].data
+        try:
+            half_bathrooms = listing.getElementsByTagName("numberHalfBaths")[0].childNodes[0].data
+        except:
+            half_bathrooms = 0
 
         living_area = get_text_node_or_default(listing, 'LivingArea')
         description = get_text_node_or_default(listing, 'description')
@@ -182,7 +185,6 @@ def output_zillow_xml_from_payload(payload, filename):
     #myfile.write(mydata)
 
 
-#ygl_url = 'http://www.yougotlistings.com/feed?id=sIiYXfrb6NDmBMok0ZA9PQldhV8W5uSp7jE4xCU1&code=zNnY'
 ygl_url = 'https://www.yougotlistings.com/feed?id=sIiYXfrb6NDmBMok0ZA9PQldhV8W5uSp7jE4xCU1&code=zNnY'
 
 doc = download_latest_ygl_file(ygl_url)
